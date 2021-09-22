@@ -1,7 +1,7 @@
 <!--Header Start-->
 <html>
 <head>
-<title>FTvSeries - Tv Series starting with A, B or C</title>
+<title>FTvSeries - TV Series starting with A, B or C</title>
 <meta name="description" content="FTvSeries - The only site to free download your all favorite english tv series and season in compatible mobile format (HD Mp4, Mp4 and 3gp), have fun downloading. ">
 <meta name="keywords" content="F2TvSeries, free, download, tv show, english, tv series, series, show, hd mp4, mobile, full, season, episode, complete, game of thrones, got, mp4, 3gp, 720p">
 <link rel="icon" href="{{asset('images/overwolf-filled.png')}}">

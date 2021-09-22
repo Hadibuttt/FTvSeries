@@ -28,3 +28,7 @@ Route::get('/list-of-all-genre', function () {
 Route::get('/tv-series-starting-with/{a1}/{a2}/{a3}', function () {
     return view('tv-series');
 });
+
+// Admin Routes
+Route::get('/admin/insert-series', [App\Http\Controllers\AdminController::class, 'series_view'] );
+Route::post('/admin/insert-series', [App\Http\Controllers\AdminController::class, 'insert_series_view'] );
