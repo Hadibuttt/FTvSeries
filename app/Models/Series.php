@@ -9,5 +9,11 @@ class Series extends Model
 {
     use HasFactory;
     protected $table='series';
-    protected $primaryKey = 'slug';
+    protected $primaryKey = 'id';
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }

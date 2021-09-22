@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Series;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/list-of-all-series', function () {
-    return view('list-of-series');
-});
+Route::get('/list-of-all-series', [App\Http\Controllers\IndexController::class, 'list_all_series'] );
+Route::get('/{series_slug}/series', [App\Http\Controllers\IndexController::class, 'series'] );
 
 Route::get('/list-of-all-genre', function () {
     return view('list-of-genre');

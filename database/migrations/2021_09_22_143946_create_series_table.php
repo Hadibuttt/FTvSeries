@@ -15,10 +15,11 @@ class CreateSeriesTable extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('name');
             $table->string('image');
             $table->string('description',1024);
+            $table->string('SEO',1024);
             $table->string('rating');
             $table->string('series_views');
             $table->string('season_views');

@@ -1,7 +1,7 @@
 <!--Header Start-->
 <html>
 <head>
-<title>FTvSeries - List of All Series</title>
+<title>{{$series->name}} - FTvSeries</title>
 <meta name="description" content="FTvSeries - The only site to free download your all favorite english tv series and season in compatible mobile format (HD Mp4, Mp4 and 3gp), have fun downloading. ">
 <meta name="keywords" content="F2TvSeries, free, download, tv show, english, tv series, series, show, hd mp4, mobile, full, season, episode, complete, game of thrones, got, mp4, 3gp, 720p">
 <link rel="icon" href="{{asset('images/overwolf-filled.png')}}">
@@ -46,29 +46,45 @@ a{text-decoration:none;}
 </form>
 <!--Header End-->
 
-<!-- Bootstrap CSS -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<br><div style="background-color:darkolivegreen;color:white;border:4px solid darkolivegreen;margin:1px;font-size:17px;border-radius:6px;word-spacing:2px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+             
+    <a href="/" style="color:white;margin-left:-8px;"><b>Home </a> » <a href="Tv Series.php" style="color:white;margin-left:3px;">{{$series->First_Alphabet}}, {{$series->Mid_Alphabet}} or {{$series->Last_Alphabet}}</a>  » {{$series->name}}</b></div>
 
-<style>
-.button {position:fixed;bottom:20px;right:30px;}
-.button1 {position:fixed;bottom:80px;right:30px;}
-</style>
+<br><br>
 
-<br><div style="color:white;background-color:darkolivegreen;border:2px solid darkolivegreen;margin:1px;font-size:18px;border-radius:4px;width:99.9%;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><center>List of all Series:</center></div>
+<br><center><img src="{{asset('series/images'.'/'.$series->image)}}" style="border:1px solid black;border-radius:7px;"></img></center>
 
-<br>
-
-<br><div style="color:darkslategray;font-size:17.5px;line-height:30px;margin-left:5px;">
-
-@for ($i = 1; $i <= 12; $i++)
-@foreach ($series as $ser)
-    <img src="https://img.icons8.com/doodle/48/000000/circled-right-2.png" style="height:25px;"><a href="/{{$ser->slug}}/series" style="color:darkslategray;"><b>{{$ser->name}}</b></a><br>
-@endforeach
-@endfor
-
-</div>
+<div style="color:white;font-size:18px;text-align:center;"><b>{{$series->name}}</b></div>
 
 <br>
+
+<p style="color:darkslategray;font-size:17px;text-align:center;"><i><b>{{$series->description}}</b></i></p>
+
+<div style="color:white;text-align:center;"><b>IMDB:</b><a href="{{$series->imdb}}" style="color:darkolivegreen;padding-left:3px;">{{$series->imdb}}</a></div>
+<br>
+
+<div style="background-color:white;color:black;border:10px solid black;border-radius:12px;font-size:17;border-radius:14px;margin-left:2px;width:100.1%;"><b>  Casts: </b>{{$series->cast}} <br><b>Genres: </b> {{$series->genre}} <br><b>Run Time:</b> {{$series->runtime}} mins<br><b>Views: </b>{{$series->series_views}} <br><b>Ratings: </b>{{$series->rating}} <br><b>Seasons:</b> 2
+
+    <br><b>Rate:</b>
+    <select> 
+    <option>5</option>
+    <option>4</option>
+    <option>3</option>
+    <option>2</option>
+    <option>1</option>
+    </select><button style="background-color:darkolivegreen;color:white;border:2px solid darkolivegreen;border-radius:5px;padding-left:3px;">Rate This</button></div>
+    
+    
+    
+    <div style="background-color:darkolivegreen;color:white;border:5px solid darkolivegreen;margin:1px;font-size:19px;border-radius:5px;text-align:center;">Seasons</div>
+
+    <br>
+                          
+    <b><big style="color:darkslategray;"><a href="Season page.php" style="color:darkslategray;margin-left:4px;font-size:18.5px;"> » Season 01</a></big></b>
+
+    <br>
+<br>
+
 <!--Footer Start-->
 <div style="background-color:slategray;color:white;border:10px solid slategray;margin:1px;font-size:17px;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Watch Free Movies and Tv series from:
 
@@ -90,11 +106,3 @@ a{text-decoration:none;}
 
     </html>
 <!--Footer End-->
-
-<button onclick="scrollWin(0, -15000)" class="btn button1"><i class="glyphicon glyphicon-chevron-up"></i></button><br>
-<button onclick="scrollWin(0, 15000)" class="btn button"><i class="glyphicon glyphicon-chevron-down"></i></button><br>
-
-<script>
-    function scrollWin(x, y)
-     {window.scrollBy(x, y);}
-</script>
