@@ -27,6 +27,9 @@
 <textarea name="description" cols="30" rows="10" placeholder="Enter description"></textarea> 
 <br>
 
+<textarea name="seo" cols="30" rows="10" placeholder="Enter SEO Content"></textarea> 
+<br>
+
 <input type="text" name="imdb" placeholder="Enter imdb link">
 <br>
 

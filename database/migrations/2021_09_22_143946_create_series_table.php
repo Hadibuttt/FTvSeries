@@ -19,7 +19,7 @@ class CreateSeriesTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->string('description',1024);
-            $table->string('SEO',1024);
+            $table->string('seo',1024);
             $table->string('rating');
             $table->string('series_views');
             $table->string('season_views');

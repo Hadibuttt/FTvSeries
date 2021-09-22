@@ -21,6 +21,7 @@ class AdminController extends Controller
         $slug = Str::slug($request->name);
         $series->slug = $slug;
         $series->description = $request->description;
+        $series->seo = $request->seo;
         $series->imdb = $request->imdb;
         $series->series_views = $request->series_views;
         $series->season_views = $request->season_views;
