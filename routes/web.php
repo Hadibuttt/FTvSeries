@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/list-of-all-series', function () {
+    return view('list-of-series');
+});
+
+Route::get('/list-of-all-genre', function () {
+    return view('list-of-genre');
+});
+
+Route::get('/tv-series-starting-with/{a1}/{a2}/{a3}', function () {
+    return view('tv-series');
 });
