@@ -6,9 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
 use App\Models\Series;
+use App\Models\Season;
+use App\Models\Episode;
 
 class AdminController extends Controller
 {
+    public function episode_view()
+    {
+        $series = Series::orderBy('id','DESC')->get();
+        return view('admin.insert-episode',compact('series'));
+    }
+
+    public function season_view()
+    {
+        $series = Series::orderBy('id','DESC')->get();
+        return view('admin.insert-season',compact('series'));
+    }
+    
     public function series_view()
     {
         return view('admin.insert-series');
@@ -44,6 +58,36 @@ class AdminController extends Controller
         return redirect('/admin/insert-series');
     }
 
+    public function insert_season_view(Request $request)
+    {
+        $season = new Season;
+        $season->name = $request->season;
+        $slug = Str::slug($request->season);
+        $season->slug = $slug;
+        $season->series_slug = $request->series;
+        $season->seo = $request->seo;
+
+        $season->save();
+        Session::flash('message', "Season Added Successfully!");
+        return redirect('/admin/insert-season');
+    }
+
+    public function insert_episode_view(Request $request)
+    {
+        $episode = new Episode;
+        $episode->name = $request->episode;
+        $slug = Str::slug($request->episode);
+        $episode->slug = $slug;
+        $episode->series_slug = $request->series;
+
+        $season_slug = Str::slug($request->season);
+        $episode->season_slug = $season_slug;
+        $episode->seo = $request->seo;
+
+        $episode->save();
+        Session::flash('message', "Episode Added Successfully!");
+        return redirect('/admin/insert-episode');
+    }
 
 
 }

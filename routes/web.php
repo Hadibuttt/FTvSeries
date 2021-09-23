@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/list-of-all-series', [App\Http\Controllers\IndexController::class, 'list_all_series'] );
 Route::get('/{series_slug}/series', [App\Http\Controllers\IndexController::class, 'series'] );
+Route::get('/{series_slug}/{season_slug}/series', [App\Http\Controllers\IndexController::class, 'season'] );
 
 Route::get('/list-of-all-genre', function () {
     return view('list-of-genre');
@@ -32,3 +33,8 @@ Route::get('/tv-series-starting-with/{a1}/{a2}/{a3}', function () {
 // Admin Routes
 Route::get('/admin/insert-series', [App\Http\Controllers\AdminController::class, 'series_view'] );
 Route::post('/admin/insert-series', [App\Http\Controllers\AdminController::class, 'insert_series_view'] );
+Route::get('/admin/insert-season', [App\Http\Controllers\AdminController::class, 'season_view'] );
+Route::post('/admin/insert-season', [App\Http\Controllers\AdminController::class, 'insert_season_view'] );
+Route::get('/admin/insert-episode', [App\Http\Controllers\AdminController::class, 'episode_view'] );
+Route::post('/admin/insert-episode', [App\Http\Controllers\AdminController::class, 'insert_episode_view'] );
+

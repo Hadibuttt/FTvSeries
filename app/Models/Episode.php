@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Season extends Model
+class Episode extends Model
 {
     use HasFactory;
-    protected $table='season';
+    protected $table='episode';
     protected $primaryKey = 'id';
 
     public function getRouteKeyName()
