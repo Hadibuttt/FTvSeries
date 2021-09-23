@@ -52,7 +52,7 @@ a{text-decoration:none;}
 
 <br><div style="background-color:darkolivegreen;color:white;border:5px solid darkolivegreen;margin:1px;font-size:17px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-<a href="index.php" style="color:white;margin-left:-8px;"><b>Home </a>  » <a href="" style="color:white;margin-left:-1px;">{{$F}}, {{$M}} or {{$L}}</b></a></div>
+<a href="/" style="color:white;margin-left:-8px;"><b>Home </a>  » <span style="color:white;margin-left:-1px;">{{$F}}, {{$M}} or {{$L}}</b></span></div>
 
 <div style="background-color:white;color:black;border:5px solid white;margin:1px;font-size:17px;margin-top:-0.0px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><center>Tv Series starting with {{$F}}, {{$M}} or {{$L}}</center></div>
 

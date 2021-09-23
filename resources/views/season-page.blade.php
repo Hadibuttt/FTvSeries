@@ -47,8 +47,8 @@ a{text-decoration:none;}
 <!--Header End-->
 
 <br><div style="background-color:darkolivegreen;color:white;border:4px solid darkolivegreen;margin:1px;font-size:17px;border-radius:6px;word-spacing:2px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-    <a href="index.php" style="color:white;margin-left:-8px;"><b>Home </a> » <a href="Tv Series.php" style="color:white;margin-left:3px;">{{$series->First_Alphabet}}, {{$series->Mid_Alphabet}} or {{$series->Last_Alphabet}}</a>  »  <a href="Front Page.php" style="color:white;margin-left:2px;">{{$series->name}}</a> » {{$season->name}}</b></div>
+    
+    <a href="/" style="color:white;margin-left:-8px;"><b>Home </a> » <a href="/tv-series-starting-with/{{$series->First_Alphabet}}/{{$series->Mid_Alphabet}}/{{$series->Last_Alphabet}}" style="color:white;margin-left:3px;">{{$series->First_Alphabet}}, {{$series->Mid_Alphabet}} or {{$series->Last_Alphabet}}</a>  »  <a href="/{{$series->slug}}/series" style="color:white;margin-left:2px;">{{$series->name}}</a> » {{$season->name}}</b></div>
                
     <div><br><br><br></div>
     <center><img src="{{asset('series/images'.'/'.$series->image)}}" alt="{{$series->name}} style="border:1px solid black;border-radius:7px;"></img></center>
