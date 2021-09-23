@@ -24,13 +24,10 @@ Route::get('/{series_slug}/{season_slug}/series', [App\Http\Controllers\IndexCon
 Route::get('/{series_slug}/{season_slug}/{episode_slug}/series', [App\Http\Controllers\IndexController::class, 'episode'] );
 Route::get('/{series_slug}/{season_slug}/{episode_slug}/download', [App\Http\Controllers\IndexController::class, 'download'] );
 
+Route::get('/tv-series-starting-with/{a1}/{a2}/{a3}', [App\Http\Controllers\IndexController::class, 'tv_series_starting'] );
 
 Route::get('/list-of-all-genre', function () {
     return view('list-of-genre');
-});
-
-Route::get('/tv-series-starting-with/{a1}/{a2}/{a3}', function () {
-    return view('tv-series');
 });
 
 // Admin Routes

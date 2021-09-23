@@ -52,17 +52,17 @@ a{text-decoration:none;}
 
 <br><div style="background-color:darkolivegreen;color:white;border:5px solid darkolivegreen;margin:1px;font-size:17px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-<a href="index.php" style="color:white;margin-left:-8px;"><b>Home </a>  » <a href="" style="color:white;margin-left:-1px;">A, B or C</b></a></div>
+<a href="index.php" style="color:white;margin-left:-8px;"><b>Home </a>  » <a href="" style="color:white;margin-left:-1px;">{{$F}}, {{$M}} or {{$L}}</b></a></div>
 
-<div style="background-color:white;color:black;border:5px solid white;margin:1px;font-size:17px;margin-top:-0.0px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><center>Tv Series starting with A, B or C</center></div>
+<div style="background-color:white;color:black;border:5px solid white;margin:1px;font-size:17px;margin-top:-0.0px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><center>Tv Series starting with {{$F}}, {{$M}} or {{$L}}</center></div>
 
 <div><br><br><br></div>
 
 <br><div style="color:darkslategray;font-size:17.5px;line-height:33px;margin-left:5px;">
-    
-    <b><a href="/Front Page" style="color:darkslategray;font-size:18.5px;line-height:33px;margin-left:5px;"> <i class="glyphicon glyphicon-hand-right"></i> &nbsp; Agents of SHIELD</a></b><br>
 
-    <b><a href="Front Page.php" style="color:darkslategray;font-size:18.5px;line-height:33px;margin-left:5px;"> <i class="glyphicon glyphicon-hand-right"></i> &nbsp; Breaking Bad</a></b><br>
+    @foreach ($series as $ser)
+    <b><a href="/{{$ser->slug}}/series" style="color:darkslategray;font-size:18.5px;line-height:33px;margin-left:5px;"> <i class="glyphicon glyphicon-hand-right"></i> &nbsp; {{$ser->name}}</a></b><br>
+    @endforeach
 
 </div>
 

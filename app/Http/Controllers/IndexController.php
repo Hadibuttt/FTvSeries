@@ -72,4 +72,37 @@ class IndexController extends Controller
     }
 
 
+    public function tv_series_starting($a1, $a2, $a3)
+    {
+        if($a3 != "0"){
+            $series = Series::select(['slug', 'name'])
+            ->where('name', 'like', "$a1%")
+            ->orWhere('name', 'like', "$a2%")
+            ->orWhere('name', 'like', "$a3%")
+            ->orderBy('name')
+            ->get();
+
+            $F = $a1;
+            $M = $a2;
+            $L = $a3;
+
+            return view('tv-series', compact('series','F','M','L')); 
+        }
+
+        else{
+            $series = Series::where('name', 'regexp', '[0-9]+')
+            ->orWhere('name', 'like', "$a1%")
+            ->orWhere('name', 'like', "$a2%")
+            ->orderBy('name')
+            ->get();
+
+            $F = $a1;
+            $M = $a2;
+            $L = "0-9";
+
+            return view('tv-series', compact('series','F','M','L')); 
+        }
+    }
+
+
 }
