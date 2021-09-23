@@ -8,9 +8,16 @@ use Session;
 use App\Models\Series;
 use App\Models\Season;
 use App\Models\Episode;
+use App\Models\Link;
 
 class AdminController extends Controller
 {
+    public function download_link_view()
+    {
+        $series = Series::orderBy('id','DESC')->get();
+        return view('admin.insert-download-link',compact('series'));
+    }
+
     public function episode_view()
     {
         $series = Series::orderBy('id','DESC')->get();
@@ -87,6 +94,23 @@ class AdminController extends Controller
         $episode->save();
         Session::flash('message', "Episode Added Successfully!");
         return redirect('/admin/insert-episode');
+    }
+
+    public function insert_link_view(Request $request)
+    {
+        $link = new Link;
+        $link->link = $request->link;
+        $link->series_slug = $request->series;
+
+        $season_slug = Str::slug($request->season);
+        $link->season_slug = $season_slug;
+
+        $episode_slug = Str::slug($request->episode);
+        $link->episode_slug = $episode_slug;
+
+        $link->save();
+        Session::flash('message', "Download Link Added Successfully!");
+        return redirect('/admin/insert-download-link');
     }
 
 
