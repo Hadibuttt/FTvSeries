@@ -11,6 +11,25 @@ use App\Models\Genre;
 
 class IndexController extends Controller
 {
+    public function search(Request $request)
+    {
+        if($request->data == ""){
+            $nodata = 0;
+            return view('search', compact('nodata'));
+        }
+        
+        else{
+        $results = Series::select(['slug','name','image'])
+        ->where('name', 'like', "%$request->data%")
+        ->orderBy('name')
+        ->get();
+
+        $search = $request->data;
+        $nodata = 1;
+        return view('search', compact('results','search','nodata'));
+        }
+    }
+
     public function list_all_series()
     {
         $series = Series::all();

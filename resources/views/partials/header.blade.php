@@ -22,6 +22,6 @@
     
     <form action="/search" method="post">
         @csrf
-    <br><input type="text" name="1" required="" style="width:90%;font-size:15px;" placeholder="  Type name of series to search..."><button type="submit" name="btn" style="width:10%;font-size:15px;">Search</button><br>
+    <br><input type="text" name="data" required="" style="width:90%;font-size:15px;" placeholder="  Type name of series to search..."><button type="submit" name="btn" style="width:10%;font-size:15px;">Search</button><br>
     </form>
     <!--Header End-->

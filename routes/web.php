@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Series;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +22,10 @@ Route::get('/{series_slug}/series', [App\Http\Controllers\IndexController::class
 Route::get('/{series_slug}/{season_slug}/series', [App\Http\Controllers\IndexController::class, 'season'] );
 Route::get('/{series_slug}/{season_slug}/{episode_slug}/series', [App\Http\Controllers\IndexController::class, 'episode'] );
 Route::get('/{series_slug}/{season_slug}/{episode_slug}/download', [App\Http\Controllers\IndexController::class, 'download'] );
-
 Route::get('/tv-series-starting-with/{a1}/{a2}/{a3}', [App\Http\Controllers\IndexController::class, 'tv_series_starting'] );
-
 Route::get('/search/genre', [App\Http\Controllers\IndexController::class, 'list_all_genre'] );
 Route::get('/{genre}/genre', [App\Http\Controllers\IndexController::class, 'genre'] );
+Route::post('/search', [App\Http\Controllers\IndexController::class, 'search'] );
 
 // Admin Routes
 Route::prefix('admin')->group(function () {
