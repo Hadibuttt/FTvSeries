@@ -7,6 +7,7 @@ use App\Models\Series;
 use App\Models\Season;
 use App\Models\Episode;
 use App\Models\Link;
+use App\Models\Genre;
 
 class IndexController extends Controller
 {
@@ -14,6 +15,23 @@ class IndexController extends Controller
     {
         $series = Series::all();
         return view('list-of-series', compact('series'));
+    }
+
+    public function list_all_genre()
+    {
+        $genre = Genre::all();
+        return view('list-of-genre', compact('genre'));
+    }
+
+    public function genre($genre)
+    {
+        $series = Series::select(['slug', 'genre','name'])
+        ->where('genre', 'like', "%$genre%")
+        ->orderBy('name')
+        ->get();
+
+        $g = $genre;
+        return view('select-genre', compact('series','g'));
     }
 
     public function series($series_slug)

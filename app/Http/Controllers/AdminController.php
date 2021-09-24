@@ -9,9 +9,15 @@ use App\Models\Series;
 use App\Models\Season;
 use App\Models\Episode;
 use App\Models\Link;
+use App\Models\Genre;
 
 class AdminController extends Controller
 {
+    public function genre_view()
+    {
+        return view('admin.insert-genre');
+    }
+
     public function download_link_view()
     {
         $series = Series::orderBy('id','DESC')->get();
@@ -111,6 +117,16 @@ class AdminController extends Controller
         $link->save();
         Session::flash('message', "Download Link Added Successfully!");
         return redirect('/admin/insert-download-link');
+    }
+
+    public function insert_genre_view(Request $request)
+    {
+        $genre = new Genre;
+        $genre->name = $request->name;
+        
+        $genre->save();
+        Session::flash('message', "Genre Added Successfully!");
+        return redirect('/admin/insert-genre');
     }
 
 

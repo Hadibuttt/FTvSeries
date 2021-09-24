@@ -1,9 +1,9 @@
 <!--Header Start-->
 <html>
 <head>
-<title>FTvSeries - List of All Genre</title>
+<title>FTvSeries - {{$g}}</title>
 <meta name="description" content="FTvSeries - The only site to free download your all favorite english tv series and season in compatible mobile format (HD Mp4, Mp4 and 3gp), have fun downloading. ">
-<meta name="keywords" content="F2TvSeries, @foreach($genre as $g) {{$g->name}}, @endforeach free, download, tv show, english, tv series, series, show, hd mp4, mobile, full, season, episode, complete, game of thrones, got, mp4, 3gp, 720p">
+<meta name="keywords" content="F2TvSeries, @foreach($series as $ser) {{$ser->name}}, @endforeach free, download, tv show, english, tv series, series, show, hd mp4, mobile, full, season, episode, complete, game of thrones, got, mp4, 3gp, 720p">
 <link rel="icon" href="{{asset('images/overwolf-filled.png')}}">
 <link href="{{asset('styles/css/WBootstrap.css')}}" rel="Stylesheet">	
 <style>
@@ -28,17 +28,22 @@ a{text-decoration:none;}
 .button1 {position:fixed;bottom:80px;right:30px;}
 </style>
 
-<br><div style="color:white;background-color:darkolivegreen;border:2px solid darkolivegreen;margin:1px;font-size:18px;border-radius:4px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><center>List of all Genre:</center></div>
-
-<br><div style="color:darkslategray;font-size:17.5px;line-height:31px;margin-left:5px;">
-    <br>
-    
-@foreach ($genre as $g)
-    <img src="https://img.icons8.com/doodle/48/000000/circled-right-2.png" style="height:25px;"> <a href="/{{$g->name}}/genre" style="color:darkslategray;font-size:19px;"><b>{{$g->name}}</b></a><br>
-@endforeach
-
-</div>
 <br>
+
+<div style="background-color:darkolivegreen;color:white;border:4px solid darkolivegreen;margin:1px;font-size:17px;border-radius:6px;word-spacing:2px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+             
+                 <a href="/" style="color:white;margin-left:-8px;"><b>Home </a> »<span style="color:white;margin-left:3px;"> All Tv Series in {{$g}}</span></b></div>
+             
+
+<br>
+<br>
+<br>
+
+@foreach ($series as $ser)
+    <a href="/{{$ser->slug}}/series" style="font-size:18px;margin-left:8px;color:darkslategrey;">
+        <b><i class="glyphicon glyphicon-hand-right"></i> &nbsp{{$ser->name}}</b></a><br>
+    <br>
+@endforeach
 
 @include('partials.footer')
 
