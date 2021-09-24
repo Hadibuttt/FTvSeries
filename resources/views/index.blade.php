@@ -79,7 +79,7 @@ Eg. 24, 2 Broke Girls, Yi-Gi-Oh! etc.<br></a></div>
 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br></div>
 
-<br><div style="color:darkolivegreen;font-size:18px;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Request for Series:</div>
+{{-- <br><div style="color:darkolivegreen;font-size:18px;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Request for Series:</div>
 
 <div style="color:darkslategray;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -87,11 +87,11 @@ Eg. 24, 2 Broke Girls, Yi-Gi-Oh! etc.<br></a></div>
 <textarea name="feed" cols="60"  required="" rows="4" placeholder="Enter your Name / Request Here..
 E.g [David / GOT S3]" class="col-xs-11 col-sm-11 col-md-11 col-lg-11"></textarea><br><button type="submit" name="go" style="font-size:17px;margin-top:1.9px;">Enter Request</button>
 </div>
-</form>
+</form> --}}
 
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+{{-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <br>
-</div>
+</div> --}}
 <!--Body Ends -->
 
 @include('partials.footer')

@@ -58,7 +58,13 @@ class IndexController extends Controller
         $series = Series::where('slug',$series_slug)->first();
         $seasons = Season::where('series_slug',$series_slug)->orderBy('id','DESC')->get();
         $count = Season::where('series_slug',$series_slug)->count();
-        return view('front-page', compact('series','seasons','count'));
+
+        if($series!= null && $seasons!=null && $count!=null){
+            return view('front-page', compact('series','seasons','count'));
+        }else{
+            return redirect('/');
+        }
+        
     }
 
     public function season($series_slug, $season_slug)
@@ -73,7 +79,11 @@ class IndexController extends Controller
 
         $epcount = Episode::where('series_slug',$series_slug)->where('season_slug',$season_slug)->count();
 
-        return view('season-page', compact('series','season','episode','epcount')); 
+        if($series!= null && $season!=null && $episode!=null && $epcount!=null){
+            return view('season-page', compact('series','season','episode','epcount'));
+        }else{
+            return redirect('/'.$series_slug.'/series');
+        }         
     }
 
 
@@ -86,8 +96,12 @@ class IndexController extends Controller
         ->where('season_slug',$season_slug)
         ->where('slug',$episode_slug)
         ->first();
-    
-        return view('episode-page', compact('series','season','episode')); 
+
+        if($series!= null && $season!=null && $episode!=null){
+            return view('episode-page', compact('series','season','episode'));
+        }else{
+            return redirect('/'.$series_slug.'/'.$season_slug.'/series');
+        }      
     }
 
     public function download($series_slug, $season_slug, $episode_slug)
@@ -105,12 +119,22 @@ class IndexController extends Controller
         ->where('episode_slug',$episode_slug)
         ->first();
     
-        return view('download-page', compact('series','season','episode','link')); 
+        if($series!= null && $season!=null && $episode!=null && $link!=null){
+            return view('download-page', compact('series','season','episode','link'));
+        }else{
+            return abort(404);
+        }
+ 
     }
 
 
     public function tv_series_starting($a1, $a2, $a3)
     {
+        $total = strlen($a1) + strlen($a2) + strlen($a3);
+        if($total>3){
+            abort(403);
+        }
+else{
         if($a3 != "0"){
             $series = Series::select(['slug', 'name'])
             ->where('name', 'like', "$a1%")
@@ -141,5 +165,5 @@ class IndexController extends Controller
         }
     }
 
-
+    }
 }
