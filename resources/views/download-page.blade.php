@@ -12,7 +12,7 @@
 <body>
 <br>
 
-<center><button type="submit" style="margin-top:20px;"><a href="{{$link->link}}" style="text-decoration:none;color:black;" download>Download Now!</a></button></center>
+<center><button type="submit" style="margin-top:20px;"><a href="{{$link->link}}" download="{{$series->name}} - {{$season->name}} - {{$episode->name}}" style="text-decoration:none;color:black;" download>Download Now!</a></button></center>
 <br>
 
 <center><div style="color:red;font-size:15px;">1. Make sure you are using Chrome or UC Browser Only, Downloads won't work on Opera Mini or UC mini.<br>

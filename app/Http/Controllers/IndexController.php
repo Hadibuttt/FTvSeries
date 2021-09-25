@@ -13,9 +13,9 @@ class IndexController extends Controller
 {
     public function more_updates()
     {
-        $episode = Episode::orderBy('id','DESC')->get();
-        $season = Season::orderBy('id','DESC')->get();
-        $series = Series::orderBy('id','DESC')->get();
+        $episode = Episode::orderBy('id','DESC')->limit(30)->get();
+        $season = Season::orderBy('id','DESC')->limit(30)->get();
+        $series = Series::orderBy('id','DESC')->limit(30)->get();
 
         return view('more-updates', compact('episode','season','series'));
     }

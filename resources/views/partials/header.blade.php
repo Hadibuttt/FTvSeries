@@ -10,12 +10,12 @@
     
     <center>
     <a href="/">
-    <img src="{{asset('images/logoM.png')}}" alt="" style="height:250px;width:250;background-color:white;border-radius:6px;"></img>
+    <img src="{{asset('images/FTvSeries.png')}}" alt="FTvSeries - Logo" style="height:195px;"></img>
     </a>
     </center>
     
     <br><div style="background-color:darkolivegreen;color:white;border:2px solid darkolivegreen;font-size:17px;border-radius:5px;" class="col-lg-12 col-md-12 col-sm-12 col-md-12 col-xs-12"> 
-            <div style="text-align:center;">Join our <a href="https://www.facebook.com/MysticTvSeries" style="color:Black;font-size:17px;"> facebook page</a> to get all the news and updates.
+            <div style="text-align:center;">Join our <a href="https://www.facebook.com/FTvSeries" style="color:Black;font-size:17px;"> facebook page</a> to get all the news and updates.
                 <img src="{{asset('images/new_facebook_like_640.png')}}" style="width:35px;height:20px;"></img>
             </div>
         </div><br>
