@@ -30,12 +30,20 @@ a{text-decoration:none;}
 <br>
 <br><div style="color:darkslategray;font-size:17.5px;margin-left:5px;">
 
-    @for ($i = 1; $i <= 17; $i++)
-    <img src="https://img.icons8.com/doodle/48/000000/circled-right-2.png" style="height:25px;">
-    <a style="color:darkslategray;" href="Season page.php" target="_blank"><b>Karenjit Kaur The Untold Story of Sunny Leone - Season 2 - Episode 6 - [10/10]</b></a><br>                             
-    @endfor
+@foreach ($series as $ser)
+@foreach ($season as $sea)
+@foreach ($episode as $ep)
 
-<a href="More Updates.php" style="color:darkolivegreen;margin-left:30px;">More Updates..</a>
+@if ($ser->slug == $sea->series_slug && $sea->series_slug == $ep->series_slug  && $sea->slug == $ep->season_slug)
+<img src="https://img.icons8.com/doodle/48/000000/circled-right-2.png" style="height:25px;">
+<a style="color:darkslategray;" href="/{{$ep->series_slug}}/{{$ep->season_slug}}/{{$ep->slug}}/series"><b>{{$ser->name}} - {{$sea->name}} - {{$ep->name}} - [{{$ep->created_at->format('d/m')}}]</b></a><br>
+@endif
+
+@endforeach    
+@endforeach
+@endforeach
+
+<a href="/more-updates" style="color:darkolivegreen;margin-left:30px;">More Updates..</a>
                                  
 <div style="width:99.9%;margin-left:1px;margin-right:3px;">
 <center><div style="background-color:darkolivegreen;color:white;border:3px solid darkolivegreen;font-size:18px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Please select from the list of Tv Series:</div><div style="background-color:darkolivegreen;color:white;border:3px solid darkolivegreen;font-size:17px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">first character of the tv series</div></center></div>

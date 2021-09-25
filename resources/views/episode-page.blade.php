@@ -39,17 +39,17 @@ a{text-decoration:none;}
 <br>
 <div style="background-color:darkolivegreen;color:white;border:8px solid darkolivegreen;border-radius:5px;text-align:center;"><a href="/{{$series->slug}}/{{$season->slug}}/{{$episode->slug}}/download" style="color:white;">Download Mp4 Files </a></div>
 <br>
-<div style="color:darkslategray;font-size:16px;margin-left:7px;"><b> » {{$series->name}} - {{$season->name}} - {{$episode->name}} (FTvSeries).mp4 ({{$series->series_views}} Downloads) </b></div><br>
+<div style="color:darkslategray;font-size:16px;margin-left:7px;"><b> » {{$series->name}} - {{$season->name}} - {{$episode->name}} (FTvSeries).mp4 ({{$series->series_views}} Downloads) </b></div>
 
 <br>
 <div style="background-color:darkolivegreen;color:white;border:8px solid darkolivegreen;border-radius:5px;text-align:center;"><a href="/{{$series->slug}}/{{$season->slug}}/{{$episode->slug}}/download" style="color:white;">Download HD Mp4 Files </a></div>
 <br>
-<div style="color:darkslategray;font-size:16px;margin-left:7px;"><b> » {{$series->name}} - {{$season->name}} - {{$episode->name}} HD (FTvSeries).mp4 ({{$series->season_views}} Downloads) </b></div><br>
+<div style="color:darkslategray;font-size:16px;margin-left:7px;"><b> » {{$series->name}} - {{$season->name}} - {{$episode->name}} HD (FTvSeries).mp4 ({{$series->season_views}} Downloads) </b></div>
 
 <br>
 <div style="background-color:darkolivegreen;color:white;border:8px solid darkolivegreen;border-radius:5px;text-align:center;"><a href="/{{$series->slug}}/{{$season->slug}}/{{$episode->slug}}/download" style="color:white;">Download 3gp Files </a></a>  </div>
 <br>
-<div style="color:darkslategray;font-size:16px;margin-left:7px;"><b> » {{$series->name}} - {{$season->name}} - {{$episode->name}} (FTvSeries).3gp ({{$series->episode_views}} Downloads) </b></div><br>
+<div style="color:darkslategray;font-size:16px;margin-left:7px;"><b> » {{$series->name}} - {{$season->name}} - {{$episode->name}} (FTvSeries).3gp ({{$series->episode_views}} Downloads) </b></div>
 
 <br>
 

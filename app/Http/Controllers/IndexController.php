@@ -11,6 +11,24 @@ use App\Models\Genre;
 
 class IndexController extends Controller
 {
+    public function more_updates()
+    {
+        $episode = Episode::orderBy('id','DESC')->get();
+        $season = Season::orderBy('id','DESC')->get();
+        $series = Series::orderBy('id','DESC')->get();
+
+        return view('more-updates', compact('episode','season','series'));
+    }
+
+    public function latest_series()
+    {
+        $episode = Episode::orderBy('id','DESC')->limit(17)->get();
+        $season = Season::orderBy('id','DESC')->limit(17)->get();
+        $series = Series::orderBy('id','DESC')->limit(17)->get();
+
+        return view('index', compact('episode','season','series'));
+    }
+
     public function search(Request $request)
     {
         if($request->data == ""){

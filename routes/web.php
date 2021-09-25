@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
+Route::get('/', [App\Http\Controllers\IndexController::class, 'latest_series'] );
+Route::get('/more-updates', [App\Http\Controllers\IndexController::class, 'more_updates'] );
 Route::get('/search/list-of-all-series', [App\Http\Controllers\IndexController::class, 'list_all_series'] );
 Route::get('/{series_slug}/series', [App\Http\Controllers\IndexController::class, 'series'] );
 Route::get('/{series_slug}/{season_slug}/series', [App\Http\Controllers\IndexController::class, 'season'] );
