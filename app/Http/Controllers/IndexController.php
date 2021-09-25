@@ -50,7 +50,7 @@ class IndexController extends Controller
 
     public function list_all_series()
     {
-        $series = Series::all();
+        $series = Series::orderBy('id','DESC')->get();
         return view('list-of-series', compact('series'));
     }
 
@@ -93,7 +93,8 @@ class IndexController extends Controller
         $episode = Episode::where('series_slug',$series_slug)
         ->where('season_slug',$season_slug)
         ->orderBy('id','DESC')
-        ->get();
+        ->paginate(10);
+        $episode->withPath('/'.$series_slug.'/'.$season_slug.'/series');
 
         $epcount = Episode::where('series_slug',$series_slug)->where('season_slug',$season_slug)->count();
 
@@ -159,12 +160,13 @@ else{
             ->orWhere('name', 'like', "$a2%")
             ->orWhere('name', 'like', "$a3%")
             ->orderBy('name')
-            ->get();
+            ->paginate(10);
 
             $F = $a1;
             $M = $a2;
             $L = $a3;
 
+            $series->withPath('/tv-series-starting-with/'.$a1.'/'.$a2.'/'.$a3);
             return view('tv-series', compact('series','F','M','L')); 
         }
 
@@ -173,12 +175,12 @@ else{
             ->orWhere('name', 'like', "$a1%")
             ->orWhere('name', 'like', "$a2%")
             ->orderBy('name')
-            ->get();
+            ->paginate(10);
 
             $F = $a1;
             $M = $a2;
             $L = "0-9";
-
+            $series->withPath('/tv-series-starting-with/'.$a1.'/'.$a2.'/'.$a3);
             return view('tv-series', compact('series','F','M','L')); 
         }
     }

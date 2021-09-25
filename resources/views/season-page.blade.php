@@ -5,7 +5,8 @@
 <meta name="description" content="{{$season->seo}}">
 <meta name="keywords" content="F2TvSeries, {{$series->name}} {{$season->name}}, free, download, tv show, english, tv series, series, show, hd mp4, mobile, full, season, episode, complete, game of thrones, got, mp4, 3gp, 720p">
 <link rel="icon" href="{{asset('images/overwolf-filled.png')}}">
-<link href="{{asset('styles/css/WBootstrap.css')}}" rel="Stylesheet">	
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link href="{{asset('styles/css/WBootstrap.css')}}" rel="Stylesheet">		
 <style>
 .a {
    padding:8px 16px;
@@ -40,5 +41,8 @@ a{text-decoration:none;}
     <big style="color:darkslategray;"><b><a href="/{{$series->slug}}/{{$season->slug}}/{{$ep->slug}}/series" style="color:darkslategray;margin-left:4px;"> » {{$ep->name}}</b></a><br></big>
 <br>
 @endforeach
+<div class="d-flex justify-content-center">
+    {!! $episode->links() !!}
+</div>
 
 @include('partials.footer')

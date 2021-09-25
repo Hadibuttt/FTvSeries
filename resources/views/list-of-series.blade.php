@@ -5,7 +5,7 @@
 <meta name="description" content="FTvSeries - The only site to free download your all favorite english tv series and season in compatible mobile format (HD Mp4, Mp4 and 3gp), have fun downloading. ">
 <meta name="keywords" content="F2TvSeries, free, download, tv show, english, tv series, series, show, hd mp4, mobile, full, season, episode, complete, game of thrones, got, mp4, 3gp, 720p">
 <link rel="icon" href="{{asset('images/overwolf-filled.png')}}">
-<link href="{{asset('styles/css/WBootstrap.css')}}" rel="Stylesheet">	
+<link href="{{asset('styles/css/WBootstrap.css')}}" rel="Stylesheet">
 <style>
 .a {
    padding:8px 16px;
@@ -34,12 +34,9 @@ a{text-decoration:none;}
 
 <br><div style="color:darkslategray;font-size:17.5px;line-height:30px;margin-left:5px;">
 
-@for ($i = 1; $i <= 12; $i++)
 @foreach ($series as $ser)
     <img src="https://img.icons8.com/doodle/48/000000/circled-right-2.png" style="height:25px;"><a href="/{{$ser->slug}}/series" style="color:darkslategray;"><b>{{$ser->name}}</b></a><br>
 @endforeach
-@endfor
-
 </div>
 
 <br>
