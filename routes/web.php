@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [App\Http\Controllers\IndexController::class, 'latest_series'] );
+Route::view('/login', 'auth.login')->name('login')->middleware('guest');
 Route::get('/more-updates', [App\Http\Controllers\IndexController::class, 'more_updates'] );
 Route::get('/search/list-of-all-series', [App\Http\Controllers\IndexController::class, 'list_all_series'] );
 Route::get('/{series_slug}/series', [App\Http\Controllers\IndexController::class, 'series'] );
@@ -24,9 +24,14 @@ Route::get('/tv-series-starting-with/{a1}/{a2}/{a3}', [App\Http\Controllers\Inde
 Route::get('/search/genre', [App\Http\Controllers\IndexController::class, 'list_all_genre'] );
 Route::get('/{genre}/genre', [App\Http\Controllers\IndexController::class, 'genre'] );
 Route::post('/search', [App\Http\Controllers\IndexController::class, 'search'] );
+Route::get('/logout', function () {
+    Auth::logout();
+    Session::flush();
+    return Redirect::to('/login');
+});
 
 // Admin Routes
-Route::prefix('admin')->group(function () {
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/insert-genre', [App\Http\Controllers\AdminController::class, 'genre_view'] );
     Route::post('/insert-genre', [App\Http\Controllers\AdminController::class, 'insert_genre_view'] );
     Route::get('/insert-series', [App\Http\Controllers\AdminController::class, 'series_view'] );
